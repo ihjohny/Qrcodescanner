@@ -6,26 +6,159 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:weightSum="2">
 
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_scan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_margin="18dp">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/person_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_person_blue_400_36dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.236" />
+
+            <ImageView
+                android:id="@+id/email_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_email_blue_400_36dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/person_image" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/percent_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_verified_user_blue_400_36dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_image" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/person_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Milton Bhowmick"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/person_image"
+                app:layout_constraintStart_toEndOf="@+id/person_image"
+                app:layout_constraintTop_toTopOf="@+id/person_image" />
+
+            <TextView
+                android:id="@+id/email_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="8dp"
+                android:text="milton_bhowmick@yahoo.com"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="@+id/email_image"
+                app:layout_constraintStart_toEndOf="@+id/email_image"
+                app:layout_constraintTop_toTopOf="@+id/email_image" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/percent_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:text="95%"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="@+id/percent_image"
+                app:layout_constraintStart_toEndOf="@+id/percent_image"
+                app:layout_constraintTop_toTopOf="@+id/percent_image" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
         android:gravity="center"
-        android:padding="10dp"
-        android:text="Scan QR code"
+        android:orientation="vertical">
 
-        />
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/scan_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Scan QR code"
 
-    <TextView
-        android:id="@+id/result_text"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+            />
+
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progress"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/request_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_check_circle_yellow_500_48dp"
+            />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/result_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_check_circle_green_500_48dp"
+            />
+
+        <TextView
+            android:id="@+id/status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <EditText
+            android:visibility="gone"
+            android:id="@+id/qr_text"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>

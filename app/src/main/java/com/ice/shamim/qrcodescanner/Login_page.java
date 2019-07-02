@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import retrofit2.Call;
@@ -17,12 +18,14 @@ public class Login_page extends AppCompatActivity implements View.OnClickListene
     AppCompatButton login_btn;
     EditText UserEmail, UserPassword;
     String userEmail, userPassword;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
+        progressBar = findViewById(R.id.progress);
         login_btn = findViewById(R.id.button_login);
         UserEmail = findViewById(R.id.user_email);
         UserPassword = findViewById(R.id.user_password);
@@ -50,6 +53,7 @@ public class Login_page extends AppCompatActivity implements View.OnClickListene
             UserPassword.requestFocus();
             return;
         }
+        progressBar.setVisibility(View.VISIBLE);
 
         Call<LoginResponse> call = RetrofitClient
                 .getInstance().getApi().userLogin(userEmail, userPassword);
@@ -62,17 +66,19 @@ public class Login_page extends AppCompatActivity implements View.OnClickListene
                     LoginResponse loginResponse = response.body();
 
                     if (loginResponse.getLogin()) {
-                        Toast.makeText(Login_page.this, "Login Successful", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Login_page.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(Login_page.this, MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        intent.putExtra("userEmail",userEmail);
+                        intent.putExtra("token",loginResponse.getToken());
                         startActivity(intent);
                         finish();
                     } else {
-                        Toast.makeText(Login_page.this, "Login Failed", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Login_page.this, "Login Failed", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else{
-                    Toast.makeText(Login_page.this, "Login Failed", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login_page.this, "Login Failed", Toast.LENGTH_SHORT).show();
                 }
             }
 
