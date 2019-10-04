@@ -12,6 +12,10 @@ Login Page |Profile Page
 ![alt text](screenshots/login_page.png "Login Page")  | ![alt text](screenshots/profile_page.png "Profile Page")
 
 
+After QRcode Scan |Confirmation Page 
+-------------|-----------------
+![alt text](screenshots/after_qrscan.png "After QRcode Scan")  | ![alt text](screenshots/after_confirmation.png "Confirmation Page")
+
 
 ### Used libraries/tools:
 
