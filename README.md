@@ -4,6 +4,7 @@
   <img src="screenshots/logo.png" >
 </p>
 
+Qrcodescanner is a client side android app for a QR code based attendance system (QR Code Attendance). QR Code Attendance System's backend was developed using Django. Which provide api for user login validation and sending QR code info to server. This repo contain only android client app. By using this app user can login to see his current percentage and scaning QR Code using mobile phone's camera to take attendance.
 
 ### Sample
 
